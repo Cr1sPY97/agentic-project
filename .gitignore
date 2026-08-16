@@ -1,0 +1,254 @@
+# ================================
+
+# Frontend
+
+# ================================
+
+frontend/
+
+# ================================
+
+# Python
+
+# ================================
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+
+# Python build / distribution
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Coverage
+
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+
+# ================================
+
+# Virtual Environments
+
+# ================================
+
+.venv/
+venv/
+env/
+ENV/
+backend/.venv/
+
+# ================================
+
+# Environment Variables / Secrets
+
+# ================================
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+
+# ================================
+
+# Databases
+
+# ================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# PostgreSQL local files
+
+*.sql
+
+# ================================
+
+# FastAPI / Uvicorn
+
+# ================================
+
+*.log
+logs/
+uvicorn.log
+
+# ================================
+
+# Alembic
+
+# ================================
+
+# Keep migration files tracked.
+
+# Do NOT ignore the alembic/versions/ directory.
+
+# ================================
+
+# Testing
+
+# ================================
+
+.pytest_cache/
+.coverage
+htmlcov/
+test-results/
+*.test
+
+# ================================
+
+# IDEs
+
+# ================================
+
+.idea/
+.vscode/
+*.iml
+
+# PyCharm
+
+*.iws
+*.ipr
+
+# ================================
+
+# OS Files
+
+# ================================
+
+# Windows
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# macOS
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+
+*~
+
+# ================================
+
+# Temporary Files
+
+# ================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.old
+
+# ================================
+
+# Docker
+
+# ================================
+
+# Docker override files
+
+docker-compose.override.yml
+
+# Local Docker environment
+
+.docker/
+
+# ================================
+
+# AI / Model / Generated Files
+
+# ================================
+
+# Local model files
+
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+
+# Generated AI/cache files
+
+.ai_cache/
+model_cache/
+.cache/
+
+# ================================
+
+# Jupyter
+
+# ================================
+
+.ipynb_checkpoints/
+
+# ================================
+
+# Node.js
+
+# ================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Frontend build output
+
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/.nuxt/
+
+# ================================
+
+# Generated Files
+
+# ================================
+
+*.pid
+*.seed
+*.pid.lock
+
+temp/
+tmp/
+output/
+generated/
+
+# ================================
+
+# Local Configuration
+
+# ================================
+
+*.local
+local_settings.py
+config.local.*
+
+# ================================
+
+# Secrets / Credentials
+
+# ================================
+
+secrets/
+credentials/
+*.secret
+*_credentials.json
+service-account*.json

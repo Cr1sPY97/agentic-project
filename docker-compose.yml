@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: incident_platform_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: incident_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d incident_platform"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: incident_platform_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=False
+      - DATABASE_URL=postgresql://postgres:postgrespassword@db:5432/incident_platform
+      - SECRET_KEY=production-secret-key-incident-platform-0987654321
+      - ACCESS_TOKEN_EXPIRE_MINUTES=1440
+      - AI_PROVIDER=heuristic
+      # To enable external LLM, uncomment and supply key:
+      # - AI_PROVIDER=openai
+      # - OPENAI_API_KEY=sk-...
+      # - OPENAI_MODEL=gpt-4o-mini
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  pgdata:
+    driver: local
